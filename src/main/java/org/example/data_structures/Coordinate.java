@@ -18,6 +18,6 @@ public record Coordinate(int x, int y) implements Comparable<Coordinate> {
     @Override
     public int compareTo(@NotNull Coordinate other) {
         Coordinate delta = this.subtract(other);
-        return delta.x() != 0 ? delta.x() : delta.y();
+        return delta.y() != 0 ? delta.y() : delta.x();
     }
 }

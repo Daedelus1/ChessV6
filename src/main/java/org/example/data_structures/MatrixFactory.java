@@ -4,8 +4,8 @@ import java.util.Arrays;
 import java.util.function.Function;
 
 public class MatrixFactory {
-    public static <T> Matrix<T> stringToMatrix(String seed, Function<Character, T> converter) {
-        String[] temp = seed.split("\\n");
+    public static <T> Matrix<T> stringToMatrix(String seed, String delimiter, Function<Character, T> converter) {
+        String[] temp = seed.split(delimiter);
         if (Arrays.stream(temp).anyMatch(line -> line.trim().length() != temp[0].trim().length())) {
             throw new IllegalArgumentException("STRING DOES NOT HAVE CONSISTENT WIDTH");
         }

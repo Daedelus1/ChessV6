@@ -15,7 +15,7 @@ public class Matrix<T> {
         this.matrixDimensions = matrixDimensions;
         List<T> tempData = new ArrayList<>(matrixDimensions.width() * matrixDimensions.height());
 
-        matrixDimensions.toRegion().allCoordinatesInRegion().forEach(coordinate ->
+        matrixDimensions.toRegion().allCoordinatesInRegion().stream().sorted(Coordinate::compareTo).forEach(coordinate ->
                 tempData.add(CoordinateItemConverter.apply(coordinate)));
 
         if (tempData.contains(null)) {
@@ -33,7 +33,7 @@ public class Matrix<T> {
         if (!region.contains(point)) {
             throw new IndexOutOfBoundsException();
         }
-        return matrix.get(point.toIndex(matrixDimensions.width()));
+        return matrix.get(point.y() * matrixDimensions.width() + point.x());
     }
 
     public Dimension getMatrixDimensions() {
@@ -47,14 +47,15 @@ public class Matrix<T> {
     @Override
     public boolean equals(Object other) {
         return other instanceof Matrix<?> &&
-                this.matrixDimensions.equals(((Matrix<?>) other).matrixDimensions) &&
-                this.matrix.equals(((Matrix<?>) other).getMatrix());
+               this.matrixDimensions.equals(((Matrix<?>) other).matrixDimensions) &&
+               this.matrix.equals(((Matrix<?>) other).getMatrix());
     }
 
     @Override
     public String toString() {
         return String.format("Matrix[Dimensions: %s | Data = %s]", matrixDimensions, matrix.toString());
     }
+
 
     public String toDisplayString() {
         StringBuilder out = new StringBuilder();

@@ -11,9 +11,9 @@ import java.util.stream.IntStream;
 public record Region(Coordinate startIncl, Coordinate endIncl) {
     public boolean contains(Coordinate point) {
         return point.x() >= startIncl.x() && point.x() <= endIncl.x() &&
-                point.y() >= startIncl.y() && point.y() <= endIncl.y() ||
-                point.x() <= startIncl.x() && point.x() >= endIncl.x() &&
-                        point.y() <= startIncl.y() && point.y() >= endIncl.y();
+               point.y() >= startIncl.y() && point.y() <= endIncl.y() ||
+               point.x() <= startIncl.x() && point.x() >= endIncl.x() &&
+               point.y() <= startIncl.y() && point.y() >= endIncl.y();
     }
 
     public Region shift(Coordinate offset) {

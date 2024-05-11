@@ -1,7 +1,7 @@
 package org.example;
 
 public enum Shape {
-    PAWN, KNIGHT, BISHOP, ROOK, QUEEN, KING, EN_PASSANT_GHOST;
+    KING, QUEEN, ROOK, BISHOP, KNIGHT, PAWN, EN_PASSANT_GHOST;
 
     public int getPointValue() {
         return switch (this) {
@@ -14,5 +14,16 @@ public enum Shape {
         };
     }
 
-
+    @Override
+    public String toString() {
+        return switch (this) {
+            case KING -> "♔";
+            case QUEEN -> "♕";
+            case ROOK -> "♖";
+            case BISHOP -> "♗";
+            case KNIGHT -> "♘";
+            case PAWN -> "♙";
+            case EN_PASSANT_GHOST -> ".";
+        };
+    }
 }
