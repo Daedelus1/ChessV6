@@ -10,6 +10,10 @@ public record Coordinate(int x, int y) implements Comparable<Coordinate> {
     public Coordinate subtract(Coordinate other) {
         return new Coordinate(this.x - other.x, this.y - other.y);
     }
+    public Coordinate difference(Coordinate other) {
+        return new Coordinate(Math.abs(other.x - this.x), Math.abs(other.y - this.y));
+    }
+
 
     public int toIndex(int width) {
         return this.y * width + this.x;

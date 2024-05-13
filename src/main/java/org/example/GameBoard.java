@@ -57,7 +57,6 @@ public class GameBoard extends Matrix<Optional<Piece>> {
                 new Coordinate(moveEncoding.charAt(2) - 'a', moveEncoding.charAt(3) - '1'));
     }
 
-    @Override
     public String toDisplayString() {
         String header = "  a  b  c  d  e  f  g  h \n";
         StringBuilder out = new StringBuilder(header);
