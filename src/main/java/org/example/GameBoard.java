@@ -12,12 +12,7 @@ import static org.example.ConsoleColors.ColorType.BRIGHT;
 import static org.example.ConsoleColors.ColorType.DEFAULT;
 import static org.example.ConsoleColors.ColorValue.BLACK;
 import static org.example.ConsoleColors.ColorValue.WHITE;
-import static org.example.Shape.BISHOP;
-import static org.example.Shape.KING;
-import static org.example.Shape.KNIGHT;
-import static org.example.Shape.PAWN;
-import static org.example.Shape.QUEEN;
-import static org.example.Shape.ROOK;
+import static org.example.Shape.*;
 
 
 public class GameBoard extends Matrix<Optional<Piece>> {
@@ -39,16 +34,27 @@ public class GameBoard extends Matrix<Optional<Piece>> {
         });
     }
 
-    private GameBoard(Dimension dimension, Function<Coordinate, Optional<Piece>> converter) {
+
+    protected GameBoard(Dimension dimension, Function<Coordinate, Optional<Piece>> converter) {
         super(dimension, converter);
     }
 
 
     public GameBoard move(Coordinate start, Coordinate end) {
+        if (getItemAtCoordinate(start).isEmpty()) {
+            throw new EmptyTileException("TILE IS EMPTY");
+        }
+        if (!getItemAtCoordinate(start).get().getAllValidMoves(this, start).contains(end)) {
+            throw new IllegalMoveException(String.format("MOVE[%s, %s] IS ILLEGAL", start, end));
+        }
         return new GameBoard(this.getMatrixDimensions(), coordinate -> {
-            if (coordinate.equals(start)) return Optional.empty();
-            else if (coordinate.equals(end)) return this.getItemAtCoordinate(start);
-            else return this.getItemAtCoordinate(coordinate);
+            if (coordinate.equals(start)) {
+                return Optional.empty();
+            } else if (coordinate.equals(end)) {
+                return this.getItemAtCoordinate(start);
+            } else {
+                return this.getItemAtCoordinate(coordinate);
+            }
         });
     }
 

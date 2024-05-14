@@ -6,6 +6,6 @@ public class Main {
     public static void main(String[] args) {
         System.out.println(new GameBoard().toDisplayString());
         System.out.println(new GameBoard().getItemAtCoordinate(new Coordinate(3, 0)));
-        System.out.println(new GameBoard().move(new Coordinate(0, 0), new Coordinate(2, 2)).toDisplayString());
+        System.out.println(new GameBoard().move(new Coordinate(0, 0), new Coordinate(0, 2)).toDisplayString());
     }
 }

@@ -9,11 +9,15 @@ import java.util.stream.IntStream;
  * @param endIncl   Inclusive
  */
 public record Region(Coordinate startIncl, Coordinate endIncl) {
+    public static Region newRegion(int startXIncl, int startYIncl, int endXIncl, int endYIncl) {
+        return new Region(new Coordinate(startXIncl, startYIncl), new Coordinate(endXIncl, endYIncl));
+    }
+
     public boolean contains(Coordinate point) {
         return point.x() >= startIncl.x() && point.x() <= endIncl.x() &&
-               point.y() >= startIncl.y() && point.y() <= endIncl.y() ||
-               point.x() <= startIncl.x() && point.x() >= endIncl.x() &&
-               point.y() <= startIncl.y() && point.y() >= endIncl.y();
+                point.y() >= startIncl.y() && point.y() <= endIncl.y() ||
+                point.x() <= startIncl.x() && point.x() >= endIncl.x() &&
+                        point.y() <= startIncl.y() && point.y() >= endIncl.y();
     }
 
     public Region shift(Coordinate offset) {

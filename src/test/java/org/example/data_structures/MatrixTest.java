@@ -54,7 +54,7 @@ public class MatrixTest {
                 .add(new TestCase(MatrixFactory.stringToMatrix("123|456", "\\|", (character -> character)),
                         new Coordinate(1, 1), '5')).build();
         cases.forEach(testCase -> {
-            System.out.println(testCase);
+//            System.out.println(testCase);
             Truth.assertThat(testCase.seedMatrix.getItemAtCoordinate(testCase.pointer))
                     .isEqualTo(testCase.expected);
         });
