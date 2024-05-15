@@ -1,6 +1,7 @@
-package org.example;
+package org.example.machinery;
 
 import com.google.common.collect.ImmutableSet;
+import org.example.ConsoleColors;
 import org.example.data_structures.Coordinate;
 
 import static org.example.ConsoleColors.ColorType.*;

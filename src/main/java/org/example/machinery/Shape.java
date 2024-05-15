@@ -1,4 +1,4 @@
-package org.example;
+package org.example.machinery;
 
 public enum Shape {
     KING, QUEEN, ROOK, BISHOP, KNIGHT, PAWN, EN_PASSANT_GHOST;

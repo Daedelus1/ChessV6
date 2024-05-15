@@ -5,16 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cc54665d-0bd5-49fd-a79a-8379c21220c3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/EmptyTileException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/IllegalMoveException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/GameBoardTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/data_structures/RegionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GameBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/GameBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/EmptyTileException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/machinery/EmptyTileException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GameBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/machinery/GameBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/IllegalMoveException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/machinery/IllegalMoveException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MOVEMENT_TYPE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/machinery/MOVEMENT_TYPE.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Piece.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/data_structures/Region.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/data_structures/Region.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/data_structures/MatrixTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/data_structures/MatrixTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/machinery/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/machinery/Shape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/machinery/Team.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/data_structures/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/data_structures/Matrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/GameBoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/GameBoardTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +93,7 @@
       <module name="StatisticalAnalysis" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.*" />
+          <option name="PATTERN" value="org.example.machinery.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -105,12 +105,12 @@
       <module name="StatisticalAnalysis" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.*" />
+          <option name="PATTERN" value="org.example.machinery.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.example" />
-      <option name="MAIN_CLASS_NAME" value="org.example.GameBoardTest" />
+      <option name="PACKAGE_NAME" value="org.example.machinery" />
+      <option name="MAIN_CLASS_NAME" value="org.example.machinery.GameBoardTest" />
       <option name="METHOD_NAME" value="moveTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -212,6 +212,7 @@
       <workItem from="1715465855700" duration="4033000" />
       <workItem from="1715694741297" duration="829000" />
       <workItem from="1715707550438" duration="2144000" />
+      <workItem from="1715774043491" duration="1398000" />
     </task>
     <task id="LOCAL-00001" summary="Project Setup">
       <created>1715362030644</created>
@@ -226,6 +227,17 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Project Setup" />
     <option name="LAST_COMMIT_MESSAGE" value="Project Setup" />
@@ -234,7 +246,7 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/GameBoard.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/machinery/GameBoard.java</url>
           <line>54</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>

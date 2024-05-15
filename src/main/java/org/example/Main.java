@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.data_structures.Coordinate;
+import org.example.machinery.GameBoard;
 
 public class Main {
     public static void main(String[] args) {

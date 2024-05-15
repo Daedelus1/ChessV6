@@ -1,6 +1,7 @@
-package org.example;
+package org.example.machinery;
 
 
+import org.example.ConsoleColors;
 import org.example.data_structures.Coordinate;
 import org.example.data_structures.Dimension;
 import org.example.data_structures.Matrix;
@@ -12,7 +13,7 @@ import static org.example.ConsoleColors.ColorType.BRIGHT;
 import static org.example.ConsoleColors.ColorType.DEFAULT;
 import static org.example.ConsoleColors.ColorValue.BLACK;
 import static org.example.ConsoleColors.ColorValue.WHITE;
-import static org.example.Shape.*;
+import static org.example.machinery.Shape.*;
 
 
 public class GameBoard extends Matrix<Optional<Piece>> {
@@ -39,6 +40,19 @@ public class GameBoard extends Matrix<Optional<Piece>> {
         super(dimension, converter);
     }
 
+    protected boolean isInCheck(Team teamWhoIsChecked) {
+        Coordinate kingLocation = this.getAllPoints().stream().filter(c -> {
+            Optional<Piece> item = getItemAtCoordinate(c);
+            return item.isPresent() && item.get().shape() == KING
+                    && item.get().team() == teamWhoIsChecked;
+        }).findFirst().get();
+        return this.getMatrixDimensions().toRegion().allCoordinatesInRegion().stream()
+                .filter(coordinate -> this.getItemAtCoordinate(coordinate).isPresent())
+                .filter(coordinate -> this.getItemAtCoordinate(coordinate).get().team() != teamWhoIsChecked)
+                .anyMatch(coordinate -> this.getItemAtCoordinate(coordinate).get()
+                        .getAllValidMoves(this, coordinate).contains(kingLocation));
+    }
+
 
     public GameBoard move(Coordinate start, Coordinate end) {
         if (getItemAtCoordinate(start).isEmpty()) {
@@ -47,6 +61,10 @@ public class GameBoard extends Matrix<Optional<Piece>> {
         if (!getItemAtCoordinate(start).get().getAllValidMoves(this, start).contains(end)) {
             throw new IllegalMoveException(String.format("MOVE[%s, %s] IS ILLEGAL", start, end));
         }
+        return blindMove(start, end);
+    }
+
+    protected GameBoard blindMove(Coordinate start, Coordinate end) {
         return new GameBoard(this.getMatrixDimensions(), coordinate -> {
             if (coordinate.equals(start)) {
                 return Optional.empty();

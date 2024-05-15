@@ -9,7 +9,7 @@ import java.util.function.Function;
 import java.util.stream.IntStream;
 
 public class Matrix<T> {
-    private final ImmutableList<T> matrix;
+    protected final ImmutableList<T> matrix;
     private final Dimension matrixDimensions;
 
     public Matrix(Dimension matrixDimensions, Function<Coordinate, T> CoordinateItemConverter) {

@@ -1,4 +1,6 @@
-package org.example;
+package org.example.machinery;
+
+import org.example.ConsoleColors;
 
 public enum Team {
     WHITE, BLACK;

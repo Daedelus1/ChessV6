@@ -1,4 +1,4 @@
-package org.example;
+package org.example.machinery;
 
 public class EmptyTileException extends IllegalMoveException {
 

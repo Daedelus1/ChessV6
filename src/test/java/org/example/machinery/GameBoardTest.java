@@ -1,14 +1,17 @@
-package org.example;
+package org.example.machinery;
 
 import com.google.common.collect.ImmutableSet;
 import org.example.data_structures.Coordinate;
 import org.example.data_structures.Dimension;
 import org.example.data_structures.Matrix;
+import org.example.machinery.GameBoard;
+import org.example.machinery.IllegalMoveException;
+import org.example.machinery.Team;
 import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
 
-import static org.example.Shape.*;
+import static org.example.machinery.Shape.*;
 import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
