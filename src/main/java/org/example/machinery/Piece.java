@@ -6,20 +6,39 @@ import org.example.ConsoleColors;
 import org.example.data_structures.Coordinate;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.stream.Stream;
 
 import static org.example.ConsoleColors.ColorType.BOLD;
 import static org.example.ConsoleColors.ColorType.BOLD_BRIGHT;
 import static org.example.ConsoleColors.ColorType.BRIGHT;
 import static org.example.ConsoleColors.ColorValue.BLACK;
+import static org.example.machinery.Direction.EAST;
+import static org.example.machinery.Direction.NORTH;
+import static org.example.machinery.Direction.NORTH_EAST;
+import static org.example.machinery.Direction.NORTH_WEST;
+import static org.example.machinery.Direction.SOUTH;
+import static org.example.machinery.Direction.SOUTH_EAST;
+import static org.example.machinery.Direction.SOUTH_WEST;
+import static org.example.machinery.Direction.WEST;
 import static org.example.machinery.Shape.EN_PASSANT_GHOST;
 import static org.example.machinery.Shape.ROOK;
 
 public record Piece(Team team, Shape shape, boolean hasMoved) {
     private ImmutableSet<Coordinate> getAllPossibleMoves(GameBoard board, Coordinate pointOfOrigin) {
+        Function<Direction[], ImmutableSet<Coordinate>> rayCaster = directions -> {
+            ImmutableSet.Builder<Coordinate> builder = ImmutableSet.builder();
+            Arrays.stream(directions).map(direction -> drawRay(board, pointOfOrigin, direction))
+                    .forEach(builder::addAll);
+            return builder.build();
+        };
         return switch (this.shape) {
+            case ROOK -> rayCaster.apply(new Direction[]{NORTH, EAST, SOUTH, WEST});
+            case BISHOP -> rayCaster.apply(new Direction[]{NORTH_EAST, NORTH_WEST, SOUTH_WEST, SOUTH_EAST});
+            case QUEEN -> rayCaster.apply(new Direction[]{NORTH_EAST, NORTH_WEST, SOUTH_WEST, SOUTH_EAST, NORTH, EAST, SOUTH, WEST});
             case KNIGHT -> ImmutableSet.<Coordinate>builder()
                     .add(pointOfOrigin.add(1, 2))
                     .add(pointOfOrigin.add(-1, 2))
@@ -45,7 +64,7 @@ public record Piece(Team team, Shape shape, boolean hasMoved) {
                         .filter(c -> board.getItemAtCoordinate(c).isEmpty()
                                      || board.getItemAtCoordinate(c).get().team != this.team)
                         .forEach(builder::add);
-                Direction[] order = new Direction[]{Direction.EAST, Direction.WEST};
+                Direction[] order = new Direction[]{EAST, WEST};
                 for (Direction direction : order) {
                     ImmutableList<Coordinate> ray = drawRay(board, pointOfOrigin, direction);
                     Coordinate closestNeighbor = ray.get(ray.size() - 1);
@@ -58,28 +77,6 @@ public record Piece(Team team, Shape shape, boolean hasMoved) {
                 }
                 yield builder.build();
             }
-            case ROOK -> ImmutableSet.<Coordinate>builder()
-                    .addAll(drawRay(board, pointOfOrigin, Direction.NORTH))
-                    .addAll(drawRay(board, pointOfOrigin, Direction.SOUTH))
-                    .addAll(drawRay(board, pointOfOrigin, Direction.EAST))
-                    .addAll(drawRay(board, pointOfOrigin, Direction.WEST))
-                    .build();
-            case BISHOP -> ImmutableSet.<Coordinate>builder()
-                    .addAll(drawRay(board, pointOfOrigin, Direction.NORTH_EAST))
-                    .addAll(drawRay(board, pointOfOrigin, Direction.SOUTH_EAST))
-                    .addAll(drawRay(board, pointOfOrigin, Direction.NORTH_WEST))
-                    .addAll(drawRay(board, pointOfOrigin, Direction.SOUTH_WEST))
-                    .build();
-            case QUEEN -> ImmutableSet.<Coordinate>builder()
-                    .addAll(drawRay(board, pointOfOrigin, Direction.NORTH_EAST))
-                    .addAll(drawRay(board, pointOfOrigin, Direction.SOUTH_EAST))
-                    .addAll(drawRay(board, pointOfOrigin, Direction.NORTH_WEST))
-                    .addAll(drawRay(board, pointOfOrigin, Direction.SOUTH_WEST))
-                    .addAll(drawRay(board, pointOfOrigin, Direction.NORTH))
-                    .addAll(drawRay(board, pointOfOrigin, Direction.SOUTH))
-                    .addAll(drawRay(board, pointOfOrigin, Direction.EAST))
-                    .addAll(drawRay(board, pointOfOrigin, Direction.WEST))
-                    .build();
             case PAWN -> {
                 ImmutableSet.Builder<Coordinate> builder = ImmutableSet.builder();
                 Coordinate point = pointOfOrigin.add(0, this.team == Team.WHITE ? 1 : -1);
@@ -143,20 +140,5 @@ public record Piece(Team team, Shape shape, boolean hasMoved) {
         return ConsoleColors.colorize(shape.toString(), team.toColor(), team.toColor() == BLACK ? BOLD : BOLD_BRIGHT);
     }
     
-    private enum Direction {
-        NORTH, NORTH_EAST, EAST, SOUTH_EAST, SOUTH, SOUTH_WEST, WEST, NORTH_WEST;
-        
-        public Coordinate shift(Coordinate start, int distance) {
-            return start.add((switch (this) {
-                case NORTH -> new Coordinate(0, 1);
-                case EAST -> new Coordinate(1, 0);
-                case SOUTH -> new Coordinate(0, -1);
-                case WEST -> new Coordinate(-1, 0);
-                case NORTH_EAST -> new Coordinate(1, 1);
-                case NORTH_WEST -> new Coordinate(1, -1);
-                case SOUTH_WEST -> new Coordinate(-1, -1);
-                case SOUTH_EAST -> new Coordinate(-1, 1);
-            }).multiply(distance));
-        }
-    }
+    
 }

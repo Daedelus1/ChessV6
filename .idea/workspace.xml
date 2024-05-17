@@ -4,24 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc54665d-0bd5-49fd-a79a-8379c21220c3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ConsoleColors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ConsoleColors.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/data_structures/Coordinate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/data_structures/Coordinate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/data_structures/Dimension.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/data_structures/Dimension.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/data_structures/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/data_structures/Matrix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/data_structures/MatrixFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/data_structures/MatrixFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/data_structures/Region.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/data_structures/Region.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/machinery/EmptyTileException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/machinery/EmptyTileException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/machinery/GameBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/machinery/GameBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/machinery/IllegalMoveException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/machinery/IllegalMoveException.java" afterDir="false" />
+    <list default="true" id="cc54665d-0bd5-49fd-a79a-8379c21220c3" name="Changes" comment="Revamped move legality checks, and made them with all features">
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/machinery/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/machinery/Piece.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/machinery/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/machinery/Shape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/machinery/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/machinery/Team.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/data_structures/MatrixTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/data_structures/MatrixTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/data_structures/RegionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/data_structures/RegionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/machinery/GameBoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/machinery/GameBoardTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,7 +212,7 @@
       <workItem from="1715707550438" duration="2144000" />
       <workItem from="1715774043491" duration="1601000" />
       <workItem from="1715982989665" duration="2693000" />
-      <workItem from="1715986086381" duration="1577000" />
+      <workItem from="1715986086381" duration="2829000" />
     </task>
     <task id="LOCAL-00001" summary="Project Setup">
       <created>1715362030644</created>
@@ -244,7 +228,14 @@
       <option name="project" value="LOCAL" />
       <updated>1715775516702</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Revamped move legality checks, and made them with all features">
+      <created>1715987877762</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1715987877762</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -264,14 +255,15 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Project Setup" />
     <MESSAGE value="Added Checks Support" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Checks Support" />
+    <MESSAGE value="Revamped move legality checks, and made them with all features" />
+    <option name="LAST_COMMIT_MESSAGE" value="Revamped move legality checks, and made them with all features" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/machinery/GameBoard.java</url>
-          <line>65</line>
+          <line>64</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
