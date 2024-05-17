@@ -13,13 +13,22 @@ import static org.example.ConsoleColors.ColorType.BRIGHT;
 import static org.example.ConsoleColors.ColorType.DEFAULT;
 import static org.example.ConsoleColors.ColorValue.BLACK;
 import static org.example.ConsoleColors.ColorValue.WHITE;
-import static org.example.machinery.Shape.*;
+import static org.example.machinery.Shape.BISHOP;
+import static org.example.machinery.Shape.KING;
+import static org.example.machinery.Shape.KNIGHT;
+import static org.example.machinery.Shape.PAWN;
+import static org.example.machinery.Shape.QUEEN;
+import static org.example.machinery.Shape.ROOK;
 
 
 public class GameBoard extends Matrix<Optional<Piece>> {
-    public GameBoard() {
+    public static GameBoard newGame() {
+        return new GameBoard("RNBQKBNRPPPPPPPP................................pppppppprnbqkbnr");
+    }
+    
+    public GameBoard(String seed) {
         super(new Dimension(8, 8), coordinate -> {
-            char pieceChar = "RNBQKBNRPPPPPPPP................................pppppppprnbqkbnr"
+            char pieceChar = seed
                     .charAt(coordinate.toIndex(8));
             return pieceChar == '.' ? Optional.empty() :
                     Optional.of(new Piece(Character.isUpperCase(pieceChar) ? Team.WHITE : Team.BLACK,
@@ -34,26 +43,30 @@ public class GameBoard extends Matrix<Optional<Piece>> {
                             }, false));
         });
     }
-
-
+    
+    
     protected GameBoard(Dimension dimension, Function<Coordinate, Optional<Piece>> converter) {
         super(dimension, converter);
     }
-
+    
     protected boolean isInCheck(Team teamWhoIsChecked) {
-        Coordinate kingLocation = this.getAllPoints().stream().filter(c -> {
+        Optional<Coordinate> kingLocation = this.getAllPoints().stream().filter(c -> {
             Optional<Piece> item = getItemAtCoordinate(c);
             return item.isPresent() && item.get().shape() == KING
-                    && item.get().team() == teamWhoIsChecked;
-        }).findFirst().get();
-        return this.getMatrixDimensions().toRegion().allCoordinatesInRegion().stream()
-                .filter(coordinate -> this.getItemAtCoordinate(coordinate).isPresent())
-                .filter(coordinate -> this.getItemAtCoordinate(coordinate).get().team() != teamWhoIsChecked)
+                   && item.get().team() == teamWhoIsChecked;
+        }).findFirst();
+        return kingLocation.filter(value -> this.getMatrixDimensions().toRegion().allCoordinatesInRegion().stream()
+                .filter(coordinate -> this.getItemAtCoordinate(coordinate).isPresent()
+                                      && this.getItemAtCoordinate(coordinate).get().team() != teamWhoIsChecked)
                 .anyMatch(coordinate -> this.getItemAtCoordinate(coordinate).get()
-                        .getAllValidMoves(this, coordinate).contains(kingLocation));
+                        .getAllValidMoves(this, coordinate).contains(value))).isPresent();
     }
-
-
+    
+    protected boolean pointIsInBounds(Coordinate point) {
+        return this.getMatrixDimensions().toRegion().contains(point);
+    }
+    
+    
     public GameBoard move(Coordinate start, Coordinate end) {
         if (getItemAtCoordinate(start).isEmpty()) {
             throw new EmptyTileException("TILE IS EMPTY");
@@ -63,7 +76,7 @@ public class GameBoard extends Matrix<Optional<Piece>> {
         }
         return blindMove(start, end);
     }
-
+    
     protected GameBoard blindMove(Coordinate start, Coordinate end) {
         return new GameBoard(this.getMatrixDimensions(), coordinate -> {
             if (coordinate.equals(start)) {
@@ -75,12 +88,12 @@ public class GameBoard extends Matrix<Optional<Piece>> {
             }
         });
     }
-
+    
     public GameBoard move(String moveEncoding) {
         return move(new Coordinate(moveEncoding.charAt(0) - 'a', moveEncoding.charAt(1) - '1'),
                 new Coordinate(moveEncoding.charAt(2) - 'a', moveEncoding.charAt(3) - '1'));
     }
-
+    
     public String toDisplayString() {
         String header = "  a  b  c  d  e  f  g  h \n";
         StringBuilder out = new StringBuilder(header);

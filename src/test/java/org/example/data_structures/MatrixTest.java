@@ -11,7 +11,7 @@ import java.util.logging.Level;
 
 public class MatrixTest {
     private static final FluentLogger logger = FluentLogger.forEnclosingClass();
-
+    
     @Test
     public void stringToMatrixTest() {
         record TestCase(String seed, String delimiter, Function<Character, Integer> characterFunction,
@@ -31,11 +31,11 @@ public class MatrixTest {
                 .add(new TestCase("12|23|34", "\\|", n -> n - '0',
                         new Matrix<>(new Dimension(2, 3), c -> c.y() + c.x() + 1)))
                 .build();
-
+        
         cases.forEach(testCase -> Truth.assertThat(MatrixFactory.stringToMatrix(testCase.seed, testCase.delimiter, testCase.characterFunction))
                 .isEqualTo(testCase.expected));
     }
-
+    
     @Test
     public void getItemAtTest() {
         record TestCase(Matrix<Character> seedMatrix, Coordinate pointer, char expected) {
@@ -59,14 +59,14 @@ public class MatrixTest {
                     .isEqualTo(testCase.expected);
         });
     }
-
+    
     @Test
     public void factoryTest() {
         Level loggingLevel = Level.FINE;
-
+        
         record TestCase(String seed, Function<Character, Foo> converter, Matrix<Foo> output) {
         }
-
+        
         ImmutableSet<TestCase> cases = ImmutableSet.<TestCase>builder().add(new TestCase("""
                         XXX
                         XXX
@@ -74,7 +74,7 @@ public class MatrixTest {
                         OOO
                         OOO
                         OOO""", Foo::fromChar, new Matrix<>(new Dimension(3, 3), coordinate -> Foo.O)))
-
+                
                 .add(new TestCase("""
                         OOX
                         OOO
@@ -85,22 +85,22 @@ public class MatrixTest {
                         XOO
                         OOO
                         OOO""", Foo::fromChar, new Matrix<>(new Dimension(3, 3), coordinate -> coordinate.equals(new Coordinate(0, 0)) ? Foo.X : Foo.O)))
-
+                
                 .add(new TestCase("""
                         XOO
                         OOO
                         OOX""", Foo::fromChar, new Matrix<>(new Dimension(3, 3), coordinate -> coordinate.equals(new Coordinate(0, 0)) || coordinate.equals(new Coordinate(2, 2)) ? Foo.X : Foo.O))).build();
-
+        
         for (TestCase testCase : cases) {
             Matrix<Foo> actual = MatrixFactory.stringToMatrix(testCase.seed, "\n", testCase.converter);
             logger.at(loggingLevel).log("ACTUAL: %s | EXPECTED %s", actual.toString(), testCase.output.toString());
             Truth.assertThat(actual).isEqualTo(testCase.output);
         }
     }
-
+    
     private enum Foo {
         X, O;
-
+        
         public static Foo fromChar(char character) {
             return switch (character) {
                 case 'X' -> X;
@@ -108,11 +108,8 @@ public class MatrixTest {
                 default -> null;
             };
         }
-
-        public boolean toBoolean() {
-            return this == X;
-        }
-
+        
+        
         @Override
         public String toString() {
             return switch (this) {
@@ -121,5 +118,5 @@ public class MatrixTest {
             };
         }
     }
-
+    
 }

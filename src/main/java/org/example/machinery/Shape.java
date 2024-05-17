@@ -2,7 +2,7 @@ package org.example.machinery;
 
 public enum Shape {
     KING, QUEEN, ROOK, BISHOP, KNIGHT, PAWN, EN_PASSANT_GHOST;
-
+    
     public int getPointValue() {
         return switch (this) {
             case PAWN -> 1;
@@ -13,7 +13,7 @@ public enum Shape {
             case EN_PASSANT_GHOST -> throw new IllegalArgumentException("GHOST TILE HAS NO VALUE");
         };
     }
-
+    
     @Override
     public String toString() {
         return switch (this) {
