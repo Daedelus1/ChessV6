@@ -53,11 +53,8 @@ public class MatrixTest {
                         new Coordinate(1, 1), '5'))
                 .add(new TestCase(MatrixFactory.stringToMatrix("123|456", "\\|", (character -> character)),
                         new Coordinate(1, 1), '5')).build();
-        cases.forEach(testCase -> {
-//            System.out.println(testCase);
-            Truth.assertThat(testCase.seedMatrix.getItemAtCoordinate(testCase.pointer))
-                    .isEqualTo(testCase.expected);
-        });
+        cases.forEach(testCase -> Truth.assertThat(testCase.seedMatrix.getItemAtCoordinate(testCase.pointer))
+                .isEqualTo(testCase.expected));
     }
 
     @Test
@@ -108,11 +105,7 @@ public class MatrixTest {
                 default -> null;
             };
         }
-
-        public boolean toBoolean() {
-            return this == X;
-        }
-
+    
         @Override
         public String toString() {
             return switch (this) {

@@ -2,6 +2,7 @@ package org.example.data_structures;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +13,7 @@ public class Matrix<T> {
     protected final ImmutableList<T> matrix;
     private final Dimension matrixDimensions;
 
-    public Matrix(Dimension matrixDimensions, Function<Coordinate, T> CoordinateItemConverter) {
+    public Matrix(@NotNull Dimension matrixDimensions, @NotNull Function<Coordinate, T> CoordinateItemConverter) {
         this.matrixDimensions = matrixDimensions;
         List<T> tempData = new ArrayList<>(matrixDimensions.width() * matrixDimensions.height());
 
@@ -29,7 +30,7 @@ public class Matrix<T> {
         return this.matrixDimensions.toRegion().allCoordinatesInRegion();
     }
 
-    public T getItemAtCoordinate(Coordinate point) {
+    public T getItemAtCoordinate(@NotNull Coordinate point) {
         Region region = matrixDimensions.toRegion();
         if (!region.contains(point)) {
             throw new IndexOutOfBoundsException();
@@ -58,9 +59,9 @@ public class Matrix<T> {
     }
 
 
-    public String toDisplayString(Function<T, String> itemConverter, String delimiter) {
+    public String toDisplayString(@NotNull Function<T, String> itemConverter, String delimiter) {
         StringBuilder out = new StringBuilder();
-        matrix.stream().map(itemConverter::apply).forEach(out::append);
+        matrix.stream().map(itemConverter).forEach(out::append);
         IntStream.range(this.matrixDimensions.height(), -1).forEach(i -> 
                 out.insert(i * this.getMatrixDimensions().width(), delimiter));
         return out.toString();

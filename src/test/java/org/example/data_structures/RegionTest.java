@@ -30,9 +30,5 @@ class RegionTest {
         cases.forEach(testCase -> testCase.testPoints.forEach((point, out) -> Truth.assertThat(testCase.region.contains(point))
                 .isEqualTo(out)));
     }
-
-    @Test
-    void allCoordinatesInRegionTest() {
-
-    }
+    
 }

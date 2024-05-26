@@ -5,16 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cc54665d-0bd5-49fd-a79a-8379c21220c3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/EmptyTileException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/machinery/EmptyTileException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/GameBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/machinery/GameBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/IllegalMoveException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/machinery/IllegalMoveException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MOVEMENT_TYPE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/machinery/MOVEMENT_TYPE.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ConsoleRunner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/machinery/WrongTeamException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/machinery/Piece.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/machinery/Shape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/machinery/Team.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/data_structures/Coordinate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/data_structures/Coordinate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/data_structures/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/data_structures/Matrix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/GameBoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/GameBoardTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/machinery/GameBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/machinery/GameBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/machinery/IllegalMoveException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/machinery/IllegalMoveException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/machinery/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/machinery/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/machinery/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/machinery/Shape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/machinery/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/machinery/Team.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/data_structures/MatrixTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/data_structures/MatrixTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/data_structures/RegionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/data_structures/RegionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/machinery/GameBoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/machinery/GameBoardTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,8 +31,8 @@
         <option value="Interface" />
         <option value="Enum" />
         <option value="Record" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -47,6 +51,9 @@
       </MavenImportingSettings>
     </option>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="2gHkLOSVJuWiu1mphF0pjny0v1n" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -55,24 +62,25 @@
     <option name="showScratchesAndConsoles" value="false" />
     <option name="sortByType" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;last_directory_selection&quot;: &quot;C:/Users/ethan/Documents/GitHub/ChessV6/src/test/java/org/example/data_structures&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/ChessV6&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.maddyhome.idea.vim.ui.VimEmulationConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "last_directory_selection": "C:/Users/ethan/Documents/GitHub/ChessV6/src/test/java/org/example/data_structures",
+    "last_opened_file_path": "D:/ChessV6",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.sourceCode.Java",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ethan\Documents\GitHub\ChessV6\src\test\java\org\example\data_structures" />
@@ -82,12 +90,15 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.example.machinery" />
+    </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="org.example.data_structures" />
       <recent name="org.example" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GameBoardTest.moveTest">
+  <component name="RunManager" selected="JUnit.GameBoardTest.perftTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="StatisticalAnalysis" />
@@ -101,7 +112,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameBoardTest.moveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GameBoardTest.basicMoveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="StatisticalAnalysis" />
       <extension name="coverage">
         <pattern>
@@ -111,7 +122,23 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.example.machinery" />
       <option name="MAIN_CLASS_NAME" value="org.example.machinery.GameBoardTest" />
-      <option name="METHOD_NAME" value="moveTest" />
+      <option name="METHOD_NAME" value="basicMoveTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameBoardTest.perftTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StatisticalAnalysis" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.machinery.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.machinery" />
+      <option name="MAIN_CLASS_NAME" value="org.example.machinery.GameBoardTest" />
+      <option name="METHOD_NAME" value="perftTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -128,22 +155,6 @@
       <option name="PACKAGE_NAME" value="org.example.data_structures" />
       <option name="MAIN_CLASS_NAME" value="org.example.data_structures.MatrixTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MatrixTest.stringToMatrixTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="StatisticalAnalysis" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.data_structures.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.example.data_structures" />
-      <option name="MAIN_CLASS_NAME" value="org.example.data_structures.MatrixTest" />
-      <option name="METHOD_NAME" value="stringToMatrixTest" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -180,18 +191,18 @@
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.All Tests" />
-      <item itemvalue="JUnit.GameBoardTest.moveTest" />
+      <item itemvalue="JUnit.GameBoardTest.basicMoveTest" />
+      <item itemvalue="JUnit.GameBoardTest.perftTest" />
       <item itemvalue="JUnit.RegionTest.containsTest" />
       <item itemvalue="JUnit.MatrixTest" />
-      <item itemvalue="JUnit.MatrixTest.stringToMatrixTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.GameBoardTest.moveTest" />
-        <item itemvalue="JUnit.RegionTest.containsTest" />
+        <item itemvalue="JUnit.GameBoardTest.perftTest" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.GameBoardTest.basicMoveTest" />
+        <item itemvalue="JUnit.RegionTest.containsTest" />
         <item itemvalue="JUnit.MatrixTest" />
-        <item itemvalue="JUnit.MatrixTest.stringToMatrixTest" />
       </list>
     </recent_temporary>
   </component>
@@ -212,7 +223,9 @@
       <workItem from="1715465855700" duration="4033000" />
       <workItem from="1715694741297" duration="829000" />
       <workItem from="1715707550438" duration="2144000" />
-      <workItem from="1715774043491" duration="1398000" />
+      <workItem from="1715774043491" duration="1601000" />
+      <workItem from="1715982989665" duration="2693000" />
+      <workItem from="1716561929176" duration="2425000" />
     </task>
     <task id="LOCAL-00001" summary="Project Setup">
       <created>1715362030644</created>
@@ -221,7 +234,14 @@
       <option name="project" value="LOCAL" />
       <updated>1715362030644</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added Checks Support">
+      <created>1715775516702</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1715775516702</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,20 +260,31 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Project Setup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Project Setup" />
+    <MESSAGE value="Added Checks Support" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Checks Support" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/machinery/GameBoard.java</url>
-          <line>54</line>
+          <line>163</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/data_structures/Matrix.java</url>
-          <line>34</line>
+          <line>35</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/ConsoleRunner.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/machinery/Piece.java</url>
+          <line>134</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

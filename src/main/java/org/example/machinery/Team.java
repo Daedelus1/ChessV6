@@ -11,4 +11,10 @@ public enum Team {
             case BLACK -> ConsoleColors.ColorValue.BLACK;
         };
     }
+    public Team invert(){
+        return switch (this) {
+            case WHITE -> BLACK;
+            case BLACK -> WHITE;
+        };
+    }
 }
