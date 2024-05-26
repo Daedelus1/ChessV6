@@ -12,6 +12,6 @@ public class MatrixFactory {
         Dimension matrixDimension = new Dimension(temp[0].length(), temp.length);
         return new Matrix<>(matrixDimension, point ->
                 converter.apply(temp[point.y()].charAt(point.x())));
-
+        
     }
 }

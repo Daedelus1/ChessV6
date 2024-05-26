@@ -58,8 +58,8 @@ public final class ConsoleColors {
     private static final String PURPLE_BACKGROUND_BRIGHT = "\033[0;105m"; // PURPLE
     private static final String CYAN_BACKGROUND_BRIGHT = "\033[0;106m";  // CYAN
     private static final String WHITE_BACKGROUND_BRIGHT = "\033[0;107m";   // WHITE
-
-
+    
+    
     @SuppressWarnings("DuplicatedCode")
     public static String colorize(String string, ColorValue color, ColorType type) {
         return switch (color) {
@@ -137,11 +137,11 @@ public final class ConsoleColors {
             };
         } + string + RESET;
     }
-
+    
     public enum ColorValue {
         BLACK, RED, GREEN, YELLOW, BLUE, PURPLE, CYAN, WHITE
     }
-
+    
     public enum ColorType {
         DEFAULT, BRIGHT, BOLD, BOLD_BRIGHT, UNDERLINE, BACKGROUND, BACKGROUND_BRIGHT
     }
